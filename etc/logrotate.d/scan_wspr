@@ -1,0 +1,7 @@
+/home/pi/scan-wspr/log/scan_wspr.log {
+  rotate 12
+  monthly
+  compress
+  missingok
+  notifempty
+}
