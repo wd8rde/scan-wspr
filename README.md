@@ -1,3 +1,11 @@
+# Installation
+```
+git clone https://github.com/wd8rde/scan-wspr.git
+cd scan-wspr
+./install.sh
+sudo reboot
+```
+
 # scan_wspr
 Scripts to use rtlsd-wspr to scan a list of frequecies as report spots
 scan_wspr.sh provides a bash shell script which will envoke rtlsdr-wspr on a list of frequencies for a given number of iterations. This allows a single RTL device to be used to scan more than one band for WSPR Spots.
