@@ -6,6 +6,13 @@ cd scan-wspr
 sudo reboot
 ```
 
+# Configuration
+Please edit the scan_wspr.conf file:
+```
+export CALL=<mycallsign>
+export GRID=<my grid locator>
+export FREQLIST="1836600 3592600 7038600 14095600 28124600"
+```
 # scan_wspr
 Scripts to use rtlsd-wspr to scan a list of frequecies as report spots
 scan_wspr.sh provides a bash shell script which will envoke rtlsdr-wspr on a list of frequencies for a given number of iterations. This allows a single RTL device to be used to scan more than one band for WSPR Spots.
