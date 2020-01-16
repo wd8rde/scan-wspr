@@ -57,3 +57,10 @@ if [ ! -f /etc/rc.local.bak ]; then
 	sudo mv /etc/rc.local /etc/rc.local.bak
 fi
 sudo cp ./etc/rc.local /etc/rc.local
+
+echo "***************************************************************"
+echo "*"
+echo "* Installation of scan-wspr is successful. "
+echo "* Please reboot "
+echo "*"
+echo "***************************************************************"
