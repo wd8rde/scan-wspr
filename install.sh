@@ -15,7 +15,7 @@ mkdir -p ./git
 
 #clone librtlsdr source
 cd ./git/
-if [ ! -f "./librtlsdr" ]; then
+if [ ! -d "./librtlsdr" ]; then
 	git clone https://github.com/steve-m/librtlsdr.git
 fi
 
@@ -31,7 +31,7 @@ cd "$TOPDIR"
 
 #clone rtlsdr-wsprd sources
 cd ./git/
-if [ ! -f "./rtlsdr-wsprd" ]; then
+if [ ! -d "./rtlsdr-wsprd" ]; then
 	git clone https://github.com/Guenael/rtlsdr-wsprd
 fi
 
