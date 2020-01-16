@@ -11,5 +11,5 @@ mkdir -p /home/pi/scan-wspr/log/
 #source config variables
 . /home/pi/scan-wspr/scan_wspr.conf
 
-/home/pi/scan-wspr/scan_wspr.sh -c "$CALL" -l "$GRID" -i 3 $FREQLIST >> /home/pi/scan-wspr/log/scan_wspr.log 2>&1 &
+/home/pi/scan-wspr/scan_wspr.sh -c "$CALL" -l "$GRID" -i "$ITER" $FREQLIST >> /home/pi/scan-wspr/log/scan_wspr.log 2>&1 &
 CHILD=$!
