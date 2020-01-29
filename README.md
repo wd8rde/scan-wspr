@@ -3,6 +3,7 @@
 git clone https://github.com/wd8rde/scan-wspr.git
 cd scan-wspr
 ./install.sh
+vim.tiny scan_wspr.conf
 sudo reboot
 ```
 
