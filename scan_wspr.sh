@@ -22,6 +22,10 @@ case $key in
     shift # past argument
     shift # past value
     ;;
+    -v|--verbose)
+    VERBOSE=true
+    shift # past argument
+    ;;
     -h|--help)
     HELP=YES
     shift # past argument
@@ -64,10 +68,11 @@ if [ "$HELP" == "YES" ]; then
    echo "   Frequencies must be in Hz."
    echo ""
    echo "OPTIONS:"
-   echo "   -c --callsign  Amatuer callsign that will report spots."
-   echo "   -l --locator   Grid locator of this receiver."
+   echo "   -c --callsign   Amatuer callsign that will report spots."
+   echo "   -l --locator    Grid locator of this receiver."
    echo "   -i --iterations Number of spotting iterations per band."
-   echo "   -h --help      This help."
+   echo "   -v --verbose    Provide verbose output."
+   echo "   -h --help       This help."
    exit 1
 fi
 
@@ -92,6 +97,7 @@ do_wspr () {
    CL="$2"
    GL="$3"
    ITR="$4"
+   VB="$5"
    DS="0"
    GAIN="29"
    WSPRD="/usr/local/bin/rtlsdr_wsprd"
@@ -100,11 +106,19 @@ do_wspr () {
       DS="2"
    fi
 
-   echo "--------------------------------------------------------------------"
-   date
+   if [ $VB ]; then
+      LOG=
+   else
+      LOG='2> /dev/null | grep "^Spot"'
+   fi
+
    CMD="$WSPRD -d $DS -f $FR -c $CL -l $GL -n $ITR -g $GAIN"
-   echo "$CMD"
-   $CMD &
+   if [ $VB ]; then
+      echo "--------------------------------------------------------------------"
+      date
+      echo "$CMD"
+   fi
+   $(eval $CMD $LOG &)
    CHILD=$!
    wait $CHILD
 }
@@ -114,7 +128,7 @@ do_wspr () {
 #
 while true; do
    for FREQ in $FREQLIST; do
-      do_wspr "$FREQ" "$CALLSIGN" "$LOCATOR" "$ITER"
+      do_wspr "$FREQ" "$CALLSIGN" "$LOCATOR" "$ITER" "$VERBOSE"
    done
    sleep 20
 done
