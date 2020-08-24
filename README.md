@@ -1,8 +1,6 @@
 # Suggested Hardware
-```
 1. Raspberry Pi 3 (at least) -  [ RPI 3 on Amazon](https://smile.amazon.com/gp/product/B01C6FFNY4/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
 1. Rtl-SDR.COM V3 - [ RTL V3 Dongle on Amazon](https://smile.amazon.com/gp/product/B0129EBDS2/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
-```
 
 # Installation
 ```
